@@ -49,7 +49,7 @@ if [ $already_installed = false ] ; then
 
 			printf "\nCreating docker-machine ..."
 			docker-machine rm -f default
-			docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory "4096" --virtualbox-disk-size "50000" default
+			docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory "8192" --virtualbox-disk-size "50000" default
 		else
 			printf "Attempting to continue without docker toolbox ...\n"
 		fi

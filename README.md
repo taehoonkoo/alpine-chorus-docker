@@ -13,10 +13,10 @@ Easily run Alpine Chorus using docker.
   
   Take note (not publically available yet): https://blog.docker.com/2016/03/docker-for-mac-windows-beta/
   
-2) Create a larger than normal docker-machine:
+2) Create a larger than normal docker-machine (with 8gb of ram):
 
     docker-machine rm -f default
-    docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory "4096" --virtualbox-disk-size "50000" default
+    docker-machine create --driver virtualbox --virtualbox-cpu-count 2 --virtualbox-memory "8192" --virtualbox-disk-size "50000" default
 
 3) We need `docker-machine-nfs` to bugfix filesystem issues related to the data container: https://github.com/adlogix/docker-machine-nfs/pull/25
  
@@ -85,3 +85,31 @@ the volume mounting will break.  To fix this, delete and recreate your docker-ma
 
 * You can have any number of docker-compose.yml files, you do so like so: `docker-compose -f alpine_chorus_60.yml up`
   We can use this to allow users to easily switch between different setups. 
+
+
+## Version information
+
+```
+$ dk version
+Client:
+ Version:      1.10.2
+ API version:  1.22
+ Go version:   go1.5.3
+ Git commit:   c3959b1
+ Built:        Mon Feb 22 22:37:33 2016
+ OS/Arch:      darwin/amd64
+
+Server:
+ Version:      1.10.3
+ API version:  1.22
+ Go version:   go1.5.3
+ Git commit:   20f81dd
+ Built:        Thu Mar 10 21:49:11 2016
+ OS/Arch:      linux/amd64
+
+$ docker-compose version
+docker-compose version 1.6.0, build d99cad6
+docker-py version: 1.7.0
+CPython version: 2.7.9
+OpenSSL version: OpenSSL 1.0.1j 15 Oct 2014  
+```

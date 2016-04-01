@@ -44,11 +44,15 @@ $) **Run this each time you open bash to hook up the shell to the docker-machine
     # run the combined instance, daemonized
     docker-compose up -d
     
-    # Wait till you see 
-    
     # view the logs of the running instance
     docker-compose logs
+
+    # Watch Alpine & Chorus boot up -- wait till you see (from Chorus):
+    `Mizuno 0.6.11 (Jetty 8.1.15.v20140411) listening on 0.0.0.0:3000`
         
+    # ... then (in a new bash instance), run:
+    open http://`docker-machine ip`:8080
+
     # stop the combined instance
     docker-compose stop
             

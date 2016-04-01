@@ -30,6 +30,6 @@ services:
     image: cogniteev/echo
     command: echo 'Data container for AlpineChorus'
     volumes:
-      - ../data/chorus/postgres_data:/var/lib/postgresql/data
-      - ../data/chorus/config:/chorus/config
-      - ../data/alpine/ALPINE_DATA_REPOSITORY:/home/alpine/ALPINE_DATA_REPOSITORY
+      - ./data/chorus/postgres_data:/var/lib/postgresql/data
+      - ./data/chorus/config:/chorus/config
+      - ./data/alpine/ALPINE_DATA_REPOSITORY:/home/alpine/ALPINE_DATA_REPOSITORY

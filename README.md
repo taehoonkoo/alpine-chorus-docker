@@ -1,6 +1,6 @@
 # Alpine Chorus docker-compose environment
 
-Easily run an Alpine Chorus instance by using docker.  
+Easily run Alpine Chorus using docker.  
 
 * All logs inside the containers are output to STDOUT and available via `docker-compose logs`
 * All filesystem state inside the containers is placed into the data directory which is created via the 
@@ -57,14 +57,23 @@ Run bash inside a running container:
     docker exec -it <name of container> bash
     
     
-## TODO & Notes
+## TODO, Notes, & Gotchas
+
+* If you move your comptuter from one network to another (like, go home from work, etc
+), the docker-machine will have trouble connecting to the internet.  Fix this with a:
+
+    docker-machine restart
+
+* Once you have run the ./setup_volumes.sh script, do not move the 
+alpine-chorus-docker folder to another location on your hard drive.  If you do this,
+the volume mounting will break.  To fix this, delete and recreate your docker-machine.
 
 * I find, on OSX with docker-machine, it's hard to get enough RAM to run all the Chorus services (indexer, workers, etc),
   so the `docker-compose.yml` currently overrides the `command` with one, to just start solr, and the webserver.  But, if
   this `command` line is removed, the default `CMD` of the Chorus Dockerfile is to run all the services.
 
 * Note the script: alpine-chorus-docker-installer.sh -- this is an attempt to automate all the steps above, it could be the beginnings
-  of an installer for this setup.
+  of an installer for this setup.  I think it's buggy right now, haven't had a chance to continue it.  Not necessary for the current stage.
 
 * You can have any number of docker-compose.yml files, you do so like so: `docker-compose -f alpine_chorus_60.yml up`
   We can use this to allow users to easily switch between different setups. 

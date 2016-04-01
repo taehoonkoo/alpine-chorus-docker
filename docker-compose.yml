@@ -5,7 +5,7 @@ services:
   # The compiled image: https://hub.docker.com/r/alpinedata/chorus/
   # The build repo: https://github.com/Chorus/chorus
   chorus:
-    image: alpinedata/chorus:latest
+    image: alpinedata/chorus:5.9.0
     command: bash -c "./packaging/chorus_control.sh start solr webserver && sleep 31622400"
     ports:
       - "8080:8080"
@@ -17,7 +17,7 @@ services:
   # The compiled image: https://hub.docker.com/r/alpinedata/alpine/
   # The build repo: https://github.com/alpinedatalabs/alpine-docker
   alpine:
-    image: alpinedata/alpine:latest
+    image: alpinedata/alpine:5.9.0
     volumes_from:
       - data
 

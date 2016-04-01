@@ -86,8 +86,6 @@ if [ $already_installed = false ] ; then
 	git clone https://github.com/kevinmtrowbridge/alpine-chorus-docker.git ~/alpine-chorus-docker
 fi
 
-# 8QE9RiHVFQYJfP
-
 eval "$(docker-machine env)"
 
 if [ ! -e ~/.docker/config.json ]; then

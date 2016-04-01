@@ -22,6 +22,10 @@ Easily run Alpine Chorus using docker.
  
     brew install git docker-machine-nfs 
     docker-machine-nfs default --nfs-config="-alldirs -maproot=0"
+
+$) **Run this each time you open bash to hook up the shell to the docker-machine instance:**
+
+    eval "$(docker-machine env)"    
     
 
 ## Running:

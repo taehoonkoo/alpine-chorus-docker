@@ -47,7 +47,7 @@ $) **Run this each time you open bash to hook up the shell to the docker-machine
     # view the logs of the running instance
     docker-compose logs
 
-    # Watch Alpine & Chorus boot up -- wait till you see (from Chorus):
+    # ... watch Alpine & Chorus boot up -- wait till you see (from Chorus):
     `Mizuno 0.6.11 (Jetty 8.1.15.v20140411) listening on 0.0.0.0:3000`
         
     # ... then (in a new bash instance), run:
@@ -90,7 +90,7 @@ the volume mounting will break.  To fix this, delete and recreate your docker-ma
 ## Version information
 
 ```
-$ dk version
+$ docker version
 Client:
  Version:      1.10.2
  API version:  1.22

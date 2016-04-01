@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+
+  # The compiled image: https://hub.docker.com/r/alpinedata/chorus/
+  # The build repo: https://github.com/Chorus/chorus
+  chorus:
+    image: alpinedata/chorus:latest
+    command: bash -c "./packaging/chorus_control.sh start solr webserver && sleep 31622400"
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    volumes_from:
+      - data
+
+  # The compiled image: https://hub.docker.com/r/alpinedata/alpine/
+  # The build repo: https://github.com/alpinedatalabs/alpine-docker
+  alpine:
+    image: alpinedata/alpine:latest
+    volumes_from:
+      - data
+
+  db:
+    image: postgres:9.4
+    volumes_from:
+      - data
+
+  data:
+    image: cogniteev/echo
+    command: echo 'Data container for AlpineChorus'
+    volumes:
+      - ../data/chorus/postgres_data:/var/lib/postgresql/data
+      - ../data/chorus/config:/chorus/config
+      - ../data/alpine/ALPINE_DATA_REPOSITORY:/home/alpine/ALPINE_DATA_REPOSITORY

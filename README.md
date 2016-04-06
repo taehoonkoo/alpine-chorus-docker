@@ -20,7 +20,7 @@ Easily run Alpine Chorus using docker.
 
 3) We need `docker-machine-nfs` to bugfix filesystem issues related to the data container: https://github.com/adlogix/docker-machine-nfs/pull/25
  
-    brew install git docker-machine-nfs 
+    brew install docker-machine-nfs 
     docker-machine-nfs default --nfs-config="-alldirs -maproot=0"
 
 $) **Run this each time you open bash to hook up the shell to the docker-machine instance:**

@@ -33,6 +33,10 @@ $) **Run this each time you open bash to hook up the shell to the docker-machine
     # login with http://hub.docker.com account to access private alpine image
     docker login
     
+    # checkout this repo
+    git clone https://github.com/Chorus/alpine-chorus-docker.git
+    
+    cd alpine-chorus-docker
     docker-compose pull
 
     # create a copy of the persistent filesystems associated with the alpine and chorus docker images, on our local host
